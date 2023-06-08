@@ -15,6 +15,11 @@ abstract contract ERC20Token {
         address _to,
         uint256 _value
     ) public virtual returns (bool success);
+
+    function transfer(
+        address _to,
+        uint256 _value
+    ) public virtual returns (bool success);
 }
 
 contract Storage {
@@ -30,6 +35,11 @@ contract Storage {
         uint price;
     }
     mapping(uint => Plan) public Plans;
+
+    struct PayoutProperties {
+        uint16 plan;
+        address _address;
+    }
 
     uint8 earnPercentage = 150;
     uint8 planLimit = 5;
